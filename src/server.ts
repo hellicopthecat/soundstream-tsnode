@@ -1,20 +1,20 @@
-import express, { Request, Response } from "express";
+import express from "express";
 import morgan from "morgan";
+import globalRouter from "./routers/globalRouter";
+import musicRouter from "./routers/musicRouter";
+import userRouter from "./routers/userRouter";
+import videoRouter from "./routers/videoRouter";
+
 const PORT = 5040;
 const app = express();
-
-const user = (req: Request, res: Response) => {
-	return res.send("user Page");
-};
+// global middelware
 app.use(morgan("dev"));
 
-app.get("/", (req, res) => {
-	return res.send("hi");
-});
-app.get("/music", (req, res) => {
-	return res.send("music page");
-});
-app.get("/user", user);
+//routers
+app.use("/", globalRouter);
+app.use("/video", videoRouter);
+app.use("/music", musicRouter);
+app.use("/user", userRouter);
 
 const handleListen = () =>
 	console.log("✅ Server is Listenin on http://localhost:5040");
