@@ -1,0 +1,6 @@
+extends ../layout/layout
+include ../mixins/videoMixin
+
+block contents 
+    each video in videos
+        +videoMixin(video)

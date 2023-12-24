@@ -1,0 +1,18 @@
+nav
+    ul 
+        li
+            a(href='/') Home
+        li
+            a(href='/video') Video
+        li
+            a(href='/upload') Upload
+        if user
+            li 
+                a Logout 
+            li 
+                a My Page 
+        else 
+            li 
+                a LogIn
+            li 
+                a Join

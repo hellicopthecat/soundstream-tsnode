@@ -1,0 +1,8 @@
+mixin videoMixin(video)
+    div 
+        h2 
+            a(href=`/video/${video.id}`) #{video.title}
+        ul 
+            li #{video.id}
+            li #{video.desc}
+            li #{video.createAt}

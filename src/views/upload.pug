@@ -1,0 +1,21 @@
+extends ./layout/layout
+
+block contents 
+    div 
+        form(method='POST') 
+            legend(hidden) Upload Contents
+            div 
+                div
+                    label(for="musicRadio") Music
+                    input#musicRadio(type="radio", name="contentRadio" value="music" checked)
+                div
+                    label(for="videoRadio") Video
+                    input#videoRadio(type="radio", name="contentRadio" value="video")
+            div 
+                label(for="contentTitle") 제목
+                input#contentTitle(type="text", name="contentTitle" placeholder="제목을 입력해주세요")
+            div 
+                label(for="contentDesc") 설명
+                input#contentDesc(type="text", name="contentDesc" placeholder="설명")
+            button(type="submit") 확인
+            a(href='/') 취소
