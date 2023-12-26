@@ -1,8 +1,19 @@
 mixin videoMixin(video)
     div 
         h2 
-            a(href=`/video/${video.id}`) #{video.title}
-        ul 
-            li #{video.id}
-            li #{video.desc}
-            li #{video.createAt}
+            a(href=`/video/${video.id}`) #{video.title.toUpperCase()} || 
+                span #{video.contentsForm.toUpperCase()}
+        ul
+            li
+                div
+                    p 설명
+                    p=video.description
+            li
+                div
+                    p Tags <br/>
+                        if video.hashTags !== null
+                            small=video.hashTags
+                        else
+                            small 해쉬태그 없음
+                    p Created  <br/>
+                        small=video.createAt.toLocaleString()

@@ -2,10 +2,14 @@ import express from "express";
 
 export type ExpressRouter = express.RequestHandler;
 
-export interface IContentsModel {
-	id: number;
+export interface IVideo {
+	contentsForm: string;
 	title: string;
-	desc: string;
-	tags?: string;
-	createAt: string | number;
+	description: string;
+	createAt: Date;
+	hashTags?: string[];
+	meta: {
+		views: number;
+		rating: number;
+	};
 }

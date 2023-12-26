@@ -2,5 +2,10 @@ extends ../layout/layout
 include ../mixins/videoMixin
 
 block contents 
+    h2 VIDEOS
     each video in videos
         +videoMixin(video)
+    else 
+        div 
+            ul 
+                li there is no Data
