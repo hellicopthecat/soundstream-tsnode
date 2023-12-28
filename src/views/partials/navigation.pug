@@ -5,14 +5,16 @@ nav
         li
             a(href='/video') Video
         li
-            a(href='/upload') Upload
+            a(href='/upload') 업로드
+        li
+            a(href='/search') 검색
         if user
             li 
-                a Logout 
+                a(href="/logout") 로그아웃 
             li 
-                a My Page 
+                a(href=`/user/${user.id}`) My Page 
         else 
             li 
-                a LogIn
+                a(href="/login") 로그인
             li 
-                a Join
+                a(href="/join") 회원가입

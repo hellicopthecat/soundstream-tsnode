@@ -12,7 +12,8 @@ mixin videoMixin(video)
                 div
                     p Tags <br/>
                         if video.hashTags !== null
-                            small=video.hashTags
+                            each tags in video.hashTags
+                                span=tags
                         else
                             small 해쉬태그 없음
                     p Created  <br/>

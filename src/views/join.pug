@@ -1,0 +1,32 @@
+extends ./layout/layout
+block contents 
+    div 
+        h2 회원가입
+        form(method="post") 
+            legend(hidden) join
+            if idError 
+                div    
+                    p=idError 
+            if emailError 
+                div    
+                    p=emailError
+            if pwError 
+                div    
+                    p=pwError
+            div 
+                label(for="userId") ID
+                input#userId(type="text", name="userId" placeholder="아이디")
+            div 
+                label(for="userPassword") 비밀번호
+                input#userPassword(type="text", name="password" placeholder="비밀번호")
+            div 
+                label(for="userPassword") 비밀번호 재확인
+                input#userPassword(type="text", name="passwordCheck" placeholder="비밀번호 재확인")
+            div 
+                label(for="userName") 닉네임
+                input#userName(type="text", name="username" placeholder="닉네임")
+            div 
+                label(for="userEmail") 이메일
+                input#userEmail(type="text", name="email" placeholder="이메일")
+            button(type="submit") 확인     
+            a(href='/') 취소

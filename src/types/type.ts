@@ -2,7 +2,7 @@ import express from "express";
 
 export type ExpressRouter = express.RequestHandler;
 
-export interface IVideo {
+export interface IContents {
 	contentsForm: string;
 	title: string;
 	description: string;
@@ -12,4 +12,11 @@ export interface IVideo {
 		views: number;
 		rating: number;
 	};
+}
+
+export interface IUser {
+	userId: string;
+	password: string;
+	username: string;
+	email: string;
 }

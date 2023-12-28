@@ -1,0 +1,28 @@
+extends ./layout/layout
+include ./mixins/videoMixin
+block contents 
+    div 
+        h2 검색
+        form(method="GET")
+            legend(hidden) search
+            div 
+                div
+                    label(for="musicRadio") All
+                    input#musicRadio(type="radio", name="searchRadio" value="all" checked) 
+                div
+                    label(for="musicRadio") Music
+                    input#musicRadio(type="radio", name="searchRadio" value="music" ) 
+                div
+                    label(for="videoRadio") Video
+                    input#videoRadio(type="radio", name="searchRadio" value="video") 
+            div
+                label(for="searchInput") 검색어
+                input#searchInput(type="text", name="searchTxt" placeholder="검색어를 입력하세요")
+            button(type="submit") 검색
+        each result in results 
+            +videoMixin(result)
+        else 
+            div 
+                p 검색어를 입력해주세요.
+
+    

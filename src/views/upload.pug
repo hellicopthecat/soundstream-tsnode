@@ -16,12 +16,12 @@ block contents
                     input#videoRadio(type="radio", name="contentRadio" value="video")
             div 
                 label(for="contentTitle") 제목
-                input#contentTitle(type="text", name="contentTitle" placeholder="제목을 입력해주세요")
+                input#contentTitle(type="text", name="title" placeholder="제목을 입력해주세요")
             div 
                 label(for="contentDesc") 설명
-                input#contentDesc(type="text", name="contentDesc" placeholder="설명")
+                input#contentDesc(type="text", name="description" placeholder="설명")
             div 
                 label(for="contentHashTags") 해쉬태그
-                input#contentHashTags(type="text", name="contentHashTags" placeholder=",으로 구분 지어주세요.")
+                input#contentHashTags(type="text", name="hashTags" placeholder=",으로 구분 지어주세요.")
             button(type="submit") 확인
             a(href='/') 취소

@@ -1,5 +1,6 @@
 import "./db";
 import "./models/contentsModel";
+import "./models/userModel";
 
 import app from "./server";
 
