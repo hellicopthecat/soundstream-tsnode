@@ -20,3 +20,10 @@ export interface IUser {
 	username: string;
 	email: string;
 }
+declare module "express-session" {
+	export interface SessionData {
+		cookie: Cookie;
+		loggedIn: boolean;
+		user: object;
+	}
+}

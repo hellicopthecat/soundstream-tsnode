@@ -8,11 +8,11 @@ nav
             a(href='/upload') 업로드
         li
             a(href='/search') 검색
-        if user
+        if loggedIn
             li 
                 a(href="/logout") 로그아웃 
             li 
-                a(href=`/user/${user.id}`) My Page 
+                a(href=`/mypage`) #{loggedUser.username}님의 My Page 
         else 
             li 
                 a(href="/login") 로그인

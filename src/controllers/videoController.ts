@@ -11,7 +11,7 @@ export const videoDetail: ExpressRouter = async (req, res) => {
 	const { id } = req.params;
 	const video = await contentsModel.findById(id);
 	if (!video) {
-		return res.render("404", {
+		return res.status(404).render("404", {
 			pageTitle: `Not Found`,
 		});
 	}
@@ -25,7 +25,7 @@ export const videoEdit: ExpressRouter = async (req, res) => {
 	const videoId = id.replace("/edit", "");
 	const video = await contentsModel.findById(videoId);
 	if (!video) {
-		return res.render("404", {
+		return res.status(404).render("404", {
 			pageTitle: `Not Found`,
 		});
 	}
@@ -41,7 +41,7 @@ export const videoEditSave: ExpressRouter = async (req, res) => {
 	const video = await contentsModel.exists({ _id: videoId });
 
 	if (!video) {
-		return res.render("404", {
+		return res.status(404).render("404", {
 			pageTitle: `Not Found`,
 		});
 	}
@@ -61,7 +61,7 @@ export const deleteVideo: ExpressRouter = async (req, res) => {
 		await contentsModel.findByIdAndDelete(videoId);
 		res.redirect("/video");
 	} else {
-		return res.render("404", {
+		return res.status(404).render("404", {
 			pageTitle: `Not Found`,
 		});
 	}

@@ -1,4 +1,17 @@
 extends ./layout/layout
 block contents 
     div 
-        
+        h2 로그인
+        form(method="POST")
+            legend(hidden) 로그인
+            div
+                label(for="loginId") 아이디
+                input#loginId(type="text", name="userId" placeholder="아이디" required)
+            div
+                label(for="loginPw") 비밀번호
+                input#loginPw(type="text", name="password" placeholder="비밀번호" required)
+            if errorMsg 
+                p=errorMsg
+            button(type="submit") 로그인
+            a(href="/") 홈
+            a(href='/join') 회원가입
