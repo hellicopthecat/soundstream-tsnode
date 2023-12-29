@@ -18,11 +18,11 @@ app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(
 	session({
-		secret: "hoho",
+		secret: process.env.COOKIE_SECRET as string,
 		resave: false,
 		saveUninitialized: false,
 		store: MongoStore.create({
-			mongoUrl: "mongodb://127.0.0.1:27017/soundstream",
+			mongoUrl: process.env.DB_URL as string,
 		}),
 	}),
 );
