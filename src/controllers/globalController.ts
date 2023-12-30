@@ -71,6 +71,8 @@ export const joinAccount: ExpressRouter = async (req, res) => {
 		username,
 		email,
 		password,
+		social: false,
+		avatarUrl: "",
 	});
 	return res.redirect("/login");
 };
@@ -93,10 +95,13 @@ export const postLogin: ExpressRouter = async (req, res) => {
 			errorMsg: "잘못된 비밀번호입니다.",
 		});
 	}
+	req.session.loggedIn = true;
+	req.session.user = user;
 
-	const session = req.session;
-	session.loggedIn = true;
-	session.user = user;
+	return res.redirect("/");
+};
 
+export const logout: ExpressRouter = async (req, res) => {
+	req.session.destroy((err) => console.log(err));
 	return res.redirect("/");
 };

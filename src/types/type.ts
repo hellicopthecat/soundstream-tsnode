@@ -19,6 +19,14 @@ export interface IUser {
 	password: string;
 	username: string;
 	email: string;
+	social?: boolean;
+	avatarUrl?: string;
+}
+export interface IGithubUserEmail {
+	email: string;
+	primary: boolean;
+	verified: boolean;
+	visibility: string | null;
 }
 declare module "express-session" {
 	export interface SessionData {

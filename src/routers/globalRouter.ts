@@ -4,6 +4,7 @@ import {
 	joinAccount,
 	joinPage,
 	loginPage,
+	logout,
 	postLogin,
 	search,
 	upload,
@@ -17,6 +18,6 @@ globalRouter.route("/upload").get(upload).post(uploadPost);
 globalRouter.get("/search", search);
 globalRouter.route("/join").get(joinPage).post(joinAccount);
 globalRouter.route("/login").get(loginPage).post(postLogin);
-globalRouter.get("/logout");
+globalRouter.get("/logout", logout);
 
 export default globalRouter;

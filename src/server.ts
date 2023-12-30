@@ -31,6 +31,6 @@ app.use(pugLocalMiddleware);
 app.use("/", globalRouter);
 app.use("/video", videoRouter);
 app.use("/music", musicRouter);
-app.use("/user", userRouter);
+app.use("/users", userRouter);
 
 export default app;

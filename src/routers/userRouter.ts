@@ -1,12 +1,12 @@
 import express from "express";
+import {
+	joinWithGithub,
+	joinWithGithubFin,
+} from "../controllers/userController";
 
 const userRouter = express.Router();
 
-userRouter.get("/", (req, res) => {
-	return res.send("3");
-});
-userRouter.get("/info", (req, res) => {
-	return res.send("info");
-});
+userRouter.get("/github/join", joinWithGithub);
+userRouter.get("/github/joinfin", joinWithGithubFin);
 
 export default userRouter;
