@@ -27,7 +27,9 @@ app.use(
 	}),
 );
 app.use(pugLocalMiddleware);
+
 //routers
+app.use("/uploads", express.static("uploads"));
 app.use("/", globalRouter);
 app.use("/video", videoRouter);
 app.use("/music", musicRouter);

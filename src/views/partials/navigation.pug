@@ -12,7 +12,7 @@ nav
             li 
                 a(href="/logout") 로그아웃 
             li 
-                a(href=`/mypage`) #{loggedUser.username}님의 My Page 
+                a(href=`/users/${loggedUser._id}`) #{loggedUser.username}님의 My Page 
         else 
             li 
                 a(href="/login") 로그인

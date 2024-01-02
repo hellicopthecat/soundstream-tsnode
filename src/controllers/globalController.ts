@@ -10,15 +10,25 @@ export const upload: ExpressRouter = (req, res) => {
 	return res.render("upload", { pageTitle: "UPLOAD" });
 };
 export const uploadPost: ExpressRouter = async (req, res) => {
-	const { contentRadio, title, description, hashTags } = req.body;
+	const {
+		session: { user },
+		body: { contentRadio, title, description, hashTags },
+		file,
+	} = req;
+
 	try {
 		if (contentRadio === "video") {
-			await contentsModel.create({
+			const newVideo = await contentsModel.create({
 				contentsForm: contentRadio,
 				title,
 				description,
+				fileUrl: file?.path,
 				hashTags: contentsModel.formatHash(hashTags),
+				owner: user?._id,
 			});
+			const findUser = await userModel.findById(user?._id);
+			findUser?.videos?.push(newVideo._id);
+			findUser?.save();
 			return res.redirect("/video");
 		}
 	} catch (error) {
@@ -76,9 +86,11 @@ export const joinAccount: ExpressRouter = async (req, res) => {
 	});
 	return res.redirect("/login");
 };
+
 export const loginPage: ExpressRouter = async (req, res) => {
 	return res.render("login", { pageTitle: "LOG IN" });
 };
+
 export const postLogin: ExpressRouter = async (req, res) => {
 	const { userId, password } = req.body;
 	const user = await userModel.findOne({ userId });
@@ -88,7 +100,7 @@ export const postLogin: ExpressRouter = async (req, res) => {
 			errorMsg: "아이디가 존재하지 않습니다.",
 		});
 	}
-	const ok = await bcrypt.compare(password, user.password);
+	const ok = await bcrypt.compare(password, user.password!);
 	if (!ok) {
 		return res.status(400).render("login", {
 			pageTitle: "LOG IN",

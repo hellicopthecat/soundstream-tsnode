@@ -9,7 +9,8 @@ export const video: ExpressRouter = async (req, res) => {
 };
 export const videoDetail: ExpressRouter = async (req, res) => {
 	const { id } = req.params;
-	const video = await contentsModel.findById(id);
+	const video = await contentsModel.findById(id).populate("owner");
+	console.log(video);
 	if (!video) {
 		return res.status(404).render("404", {
 			pageTitle: `Not Found`,
@@ -28,6 +29,9 @@ export const videoEdit: ExpressRouter = async (req, res) => {
 		return res.status(404).render("404", {
 			pageTitle: `Not Found`,
 		});
+	}
+	if (video.owner?._id + "" !== req.session.user?._id + "") {
+		return res.status(403).redirect("/");
 	}
 	return res.render("./videoTemp/videoEdit", {
 		pageTitle: `EDIT ${video?.title}`,

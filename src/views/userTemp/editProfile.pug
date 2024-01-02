@@ -1,0 +1,23 @@
+extends ../layout/layout
+block contents 
+    div 
+        if errorMsg 
+            h2=errorMsg
+        div
+            h2 My Page
+            if loggedUser.avatarUrl === ""
+                div(style="background: red; width:100px; height:100px; border-radius:100%" )
+            else
+                img(src=`/${loggedUser.avatarUrl}`, alt="avatarImg" width="100px" height="100px")
+        form(method='POST', enctype="multipart/form-data")
+            legend(hidden) My Page 
+            div 
+                label(for="username") 닉네임
+                input#username(type="text" name='username' value=loggedUser.username placeholder="닉네임")
+            div 
+                label(for="avatarUrl") 아바타
+                input#avatarUrl(type="file" name='avatarUrl' accept="image/*")
+            button(type="submit") 변경사항 저장
+            a(href='/users/mypage') 취소
+            hr
+            a(href='/users/change-password') 비밀번호 변경하러 가기

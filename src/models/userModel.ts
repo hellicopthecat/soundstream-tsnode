@@ -9,10 +9,13 @@ const userSchema = new mongoose.Schema<IUser>({
 	email: { type: String, require: true, unique: true },
 	social: { type: Boolean, default: false },
 	avatarUrl: String,
+	videos: [{ type: mongoose.Schema.ObjectId, required: true, ref: "Video" }],
 });
 
 userSchema.pre("save", async function () {
-	this.password = await bcrypt.hash(this.password, 7);
+	if (this.isModified("password")) {
+		this.password = await bcrypt.hash(this.password!, 7);
+	}
 });
 
 const userModel = mongoose.model("User", userSchema);

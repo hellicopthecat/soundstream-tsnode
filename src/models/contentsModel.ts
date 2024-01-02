@@ -5,6 +5,7 @@ interface IHashformat extends Model<IContents> {
 }
 const contentsSchema = new mongoose.Schema<IContents, IHashformat>({
 	contentsForm: { type: String, required: true, trim: true },
+	fileUrl: { type: String, required: true },
 	title: { type: String, required: true, trim: true, minLength: 3 },
 	description: { type: String, required: true, trim: true, maxLength: 30 },
 	createAt: { type: Date, required: true, default: Date.now() },
@@ -13,6 +14,7 @@ const contentsSchema = new mongoose.Schema<IContents, IHashformat>({
 		views: { type: Number, required: true, default: 0 },
 		rating: { type: Number, required: true, default: 0 },
 	},
+	owner: { type: mongoose.Schema.ObjectId, required: true, ref: "User" },
 });
 
 // contentsSchema.pre("save", async function () {

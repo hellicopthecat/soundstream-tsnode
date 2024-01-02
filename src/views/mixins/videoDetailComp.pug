@@ -1,0 +1,20 @@
+mixin videoDetail(video)
+    h2 #{video.title.toUpperCase()}
+    div
+        video(src=`/${video.fileUrl}` controls) 
+    div
+        div
+            p 작성자
+            a(href=`/users/${video.owner._id}`) #{video.owner.userId}
+        div
+            p 설명
+            p=video.description
+    div
+        p Tags <br/>
+            if video.hashTags !== null
+                each tags in video.hashTags
+                    span=tags
+            else
+                small 해쉬태그 없음
+        p Created  <br/>
+            small=video.createAt.toLocaleString()
