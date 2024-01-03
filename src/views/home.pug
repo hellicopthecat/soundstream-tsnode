@@ -1,4 +1,11 @@
 extends layout/layout
+include ./mixins/mainPageContents
 
 block contents 
-    h1 this is homepage
+    div.main-video
+        h2 최근영상
+        each video in videos 
+            +mainPageContents(video)
+        else 
+            div 
+                p 최근 올라온 영상이 없습니다.

@@ -1,0 +1,12 @@
+mixin mainPageContents(contents)
+    li.main-contents-list
+        if contents.owner.avatarUrl !== ""
+            div.avatarBg
+                img(src=contents.owner.avatarUrl, alt="avatarImg" width=50 height=50)
+        else 
+            div.non-avatarBg
+        div
+            p #{contents.title}
+            p #{contents.owner.userId}
+            small 업로드일 #{contents.createAt}
+            small #{contents.hashTags}

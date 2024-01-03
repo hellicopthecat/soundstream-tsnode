@@ -4,7 +4,8 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"dev": "nodemon"
+		"dev": "nodemon",
+		"assets": "webpack --config webpack.config.js"
 	},
 	"keywords": [
 		""
@@ -21,13 +22,21 @@
 		"@types/node-fetch": "^2.6.10",
 		"@typescript-eslint/eslint-plugin": "^6.15.0",
 		"@typescript-eslint/parser": "^6.15.0",
+		"css-loader": "^6.8.1",
 		"eslint": "^8.56.0",
 		"eslint-config-prettier": "^9.1.0",
+		"mini-css-extract-plugin": "^2.7.6",
 		"morgan": "^1.10.0",
 		"nodemon": "^3.0.2",
 		"prettier": "^3.1.1",
+		"sass": "^1.69.7",
+		"sass-loader": "^13.3.3",
+		"style-loader": "^3.3.3",
+		"ts-loader": "^9.5.1",
 		"ts-node": "^10.9.2",
-		"typescript": "^5.3.3"
+		"typescript": "^5.3.3",
+		"webpack": "^5.89.0",
+		"webpack-cli": "^5.1.4"
 	},
 	"dependencies": {
 		"bcrypt": "^5.1.1",

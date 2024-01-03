@@ -1,0 +1,17 @@
+@import "./_variables.scss";
+@import "./_reset.scss";
+
+// Components
+@import "./components/navigation.scss";
+@import "./components/avatarBg.scss";
+// mixins Comp
+@import "./mixins/mainPageContents.scss";
+
+body {
+	display: flex;
+	flex-direction: column;
+	background-color: $bgColor;
+	color: $txtColor;
+	width: 100%;
+	height: 100vh;
+}

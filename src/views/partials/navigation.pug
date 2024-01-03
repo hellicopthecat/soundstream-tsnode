@@ -1,20 +1,23 @@
-nav
-    ul 
-        li
-            a(href='/') Home
-        li
-            a(href='/video') Video
-        li
-            a(href='/upload') 업로드
-        li
-            a(href='/search') 검색
-        if loggedIn
-            li 
-                a(href="/logout") 로그아웃 
-            li 
-                a(href=`/users/${loggedUser._id}`) #{loggedUser.username}님의 My Page 
-        else 
-            li 
-                a(href="/login") 로그인
-            li 
-                a(href="/join") 회원가입
+nav.global-nav
+    div 
+        ul 
+            li
+                a(href='/') Home
+            li
+                a(href='/video') Video
+            li
+                a(href='/upload') 업로드
+            li
+                a(href='/search') 검색
+    div 
+        ul                
+            if loggedIn
+                li 
+                    a(href="/logout") 로그아웃 
+                li 
+                    a(href=`/users/${loggedUser._id}`) #{loggedUser.username}님의 My Page 
+            else 
+                li 
+                    a(href="/login") 로그인
+                li 
+                    a(href="/join") 회원가입

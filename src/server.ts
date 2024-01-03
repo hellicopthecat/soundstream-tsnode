@@ -30,6 +30,7 @@ app.use(pugLocalMiddleware);
 
 //routers
 app.use("/uploads", express.static("uploads"));
+app.use("/dist", express.static("dist"));
 app.use("/", globalRouter);
 app.use("/video", videoRouter);
 app.use("/music", musicRouter);

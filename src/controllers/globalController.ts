@@ -3,8 +3,12 @@ import contentsModel from "../models/contentsModel";
 import userModel from "../models/userModel";
 import bcrypt from "bcrypt";
 
-export const home: ExpressRouter = (req, res) => {
-	return res.render("home", { pageTitle: "HOME" });
+export const home: ExpressRouter = async (req, res) => {
+	const videos = await contentsModel
+		.find({ contentsForm: "video" })
+		.populate("owner");
+	console.log(videos);
+	return res.render("home", { pageTitle: "HOME", videos });
 };
 export const upload: ExpressRouter = (req, res) => {
 	return res.render("upload", { pageTitle: "UPLOAD" });
