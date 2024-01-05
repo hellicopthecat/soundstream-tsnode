@@ -1,0 +1,26 @@
+.video-detail {
+	.video-detail-video {
+		display: flex;
+		justify-content: center;
+		background-color: black;
+		margin-bottom: 20px;
+		video {
+			max-width: 800px;
+			height: 500px;
+		}
+	}
+	.video-detail-info {
+		& > div {
+			margin-bottom: 20px;
+		}
+		& > div:last-child > p {
+			margin-top: 8px;
+		}
+		& > div > span {
+			margin-right: 10px;
+		}
+	}
+	.video-detail-edit {
+		color: cornflowerblue;
+	}
+}

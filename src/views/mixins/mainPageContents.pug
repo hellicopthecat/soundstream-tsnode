@@ -1,12 +1,14 @@
+include ./avatarMixin
 mixin mainPageContents(contents)
     li.main-contents-list
-        if contents.owner.avatarUrl !== ""
-            div.avatarBg
-                img(src=contents.owner.avatarUrl, alt="avatarImg" width=50 height=50)
-        else 
-            div.non-avatarBg
-        div
-            p #{contents.title}
-            p #{contents.owner.userId}
-            small 업로드일 #{contents.createAt}
-            small #{contents.hashTags}
+        div.main-contents-content.video-thumbnail
+            a(href=`/video/${contents._id}`)
+                video(src=contents.fileUrl thumbnail) 
+        div.main-contents-info
+            h3 
+                a(href=`/video/${contents._id}`) #{contents.title}
+            div.main-contents-desc
+                div.main-contents-owner
+                    +avatarUrl(contents)
+                small 업로드일 #{contents.createAt.toLocaleString('ko-KR')}
+                small #{contents.hashTags}

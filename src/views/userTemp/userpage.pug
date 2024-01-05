@@ -1,16 +1,20 @@
 extends ../layout/layout
 include ../mixins/videoMixin
 block contents 
-    div
-        div
+    div.userinfo_page-wrapper
+        div.userinfo_page-user
             h2 #{user.username}님의 마이페이지
-            if loggedUser.avatarUrl === ""
-                div(style="background: red; width:100px; height:100px; border-radius:100%" )
-            else
-                img(src=`/${loggedUser.avatarUrl}`, alt="avatarImg" width="100px" height="100px")
-        div
-            a(href='/users/mypage/edit') 회원정보 수정
-        div
+            div.userinfo_page-userinfo
+                div
+                if user.avatarUrl !== ""
+                    div.userinfo_page-avatar
+                        img(src=`/${user.avatarUrl}`, alt="avatarImg")
+                else
+                    div.userinfo_page-avatar(style="background: red;" )
+                div.userinfo_page-edit
+                    a(href='/users/mypage/edit') 회원정보 수정
+        div.userinfo_page-myupload
+            h3 내가 올린 영상
             each video in user.videos
                 +videoMixin(video)
             else 

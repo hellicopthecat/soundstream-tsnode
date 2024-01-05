@@ -1,16 +1,17 @@
 extends ../layout/layout
+
 block contents 
-    div 
-        form(method="POST") 
+    div.editvideo_page-wrapper
+        form.editvideo_page-form(method="POST") 
             legned(hidden) EDIT #{video.title}
             h3 Edit #{video.title}
             div
                 label(for="videoTitle") EDIT Title
-                input#videoTitle(type="text", name="title" value=video.title placeholder=video.title minLength=3 required) 
+                input#videoTitle.inputStyle(type="text", name="title" value=video.title placeholder=video.title minLength=3 required) 
             div
                 label(for="videoDesc") EDIT Description
-                input#videoDesc(type="text", name="description" value=video.description placeholder=video.description maxLength=30 required) 
+                input#videoDesc.inputStyle(type="text", name="description" value=video.description placeholder=video.description maxLength=30 required) 
             div
                 label(for="videoHashTag") EDIT HashTags
-                input#videoHashTag(type="text", name="hashTags" value=video.hashTags.join().replaceAll('#',"") placeholder=",로 구분해서 태그를 입력하세요") 
-            input(type="submit" value="submit")
+                input#videoHashTag.inputStyle(type="text", name="hashTags" value=video.hashTags.join().replaceAll('#',"") placeholder=",로 구분해서 태그를 입력하세요") 
+            button.btnStyle(type="submit") 변경완료

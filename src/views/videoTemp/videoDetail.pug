@@ -1,9 +1,10 @@
 extends ../layout/layout
 include ../mixins/videoDetailComp
 block contents 
-    div 
+    div.video-detail
         +videoDetail(video)
         if loggedUser && String(video.owner._id) === String(loggedUser._id)
-            a(href=`${video.id}/edit`) Edit Video &rarr;
-            br
-            a(href=`${video.id}/delete`) Delete Video &rarr;
+            div.video-detail-edit
+                a(href=`${video.id}/edit`) Edit Video &rarr;
+                br
+                a(href=`${video.id}/delete`) Delete Video &rarr;

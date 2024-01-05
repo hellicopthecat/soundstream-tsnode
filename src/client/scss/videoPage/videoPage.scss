@@ -1,0 +1,41 @@
+.video-page-contents__wrapper {
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+	max-width: 1200px;
+}
+.video-page-contents {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 600px));
+	justify-content: center;
+	place-items: center;
+	padding: 20px 0;
+	border-bottom: 1px solid $subTxtColor;
+	.video-page-contents-desc {
+		padding: 20px;
+		display: flex;
+		min-width: 300px;
+		justify-content: center;
+		flex-direction: column;
+		h3 {
+			font-size: 25px;
+			font-weight: 600;
+			margin-bottom: 20px;
+		}
+		& > p {
+			margin-bottom: 20px;
+		}
+
+		.video-page-hashtags {
+			display: flex;
+			margin-bottom: 5px;
+			span {
+				margin-right: 10px;
+			}
+		}
+		small {
+			font-size: 15px;
+			color: $subTxtColor;
+		}
+	}
+}

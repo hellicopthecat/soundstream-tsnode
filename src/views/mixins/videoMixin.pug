@@ -1,20 +1,17 @@
 mixin videoMixin(video)
-    div 
-        h2 
-            a(href=`/video/${video.id}`) #{video.title.toUpperCase()} || 
-                span #{video.contentsForm.toUpperCase()}
-        ul
-            li
-                div
-                    p 설명
-                    p=video.description
-            li
-                div
-                    p Tags <br/>
-                        if video.hashTags !== null
-                            each tags in video.hashTags
-                                span=tags
-                        else
-                            small 해쉬태그 없음
-                    p Created  <br/>
-                        small=video.createAt.toLocaleString()
+    div.video-page-contents
+        div.video-page-contents-thumbnail.video-thumbnail
+            a(href=`/video/${video._id}`)
+                video(src=video.fileUrl alt="video") 
+        div.video-page-contents-desc
+            h3
+                a(href=`/video/${video.id}`) #{video.title.toUpperCase()} 
+            p #{video.description.length > 30? `${video.description.slice(0,3)}...`:video.description}
+            div
+                div.video-page-hashtags
+                    if video.hashTags !== null
+                        each tags in video.hashTags
+                            span=tags
+                    else
+                        span 해쉬태그 없음
+                small=video.createAt.toLocaleString("ko-KR")

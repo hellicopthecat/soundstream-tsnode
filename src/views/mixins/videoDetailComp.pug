@@ -1,20 +1,18 @@
+include ./avatarMixin
 mixin videoDetail(video)
-    h2 #{video.title.toUpperCase()}
-    div
+    div.video-detail-video
         video(src=`/${video.fileUrl}` controls) 
-    div
+    div.video-detail-info
+        h2 #{video.title.toUpperCase()}
         div
-            p 작성자
-            a(href=`/users/${video.owner._id}`) #{video.owner.userId}
+            +avatarUrl(video)
         div
-            p 설명
             p=video.description
-    div
-        p Tags <br/>
+        div
             if video.hashTags !== null
                 each tags in video.hashTags
                     span=tags
             else
                 small 해쉬태그 없음
-        p Created  <br/>
-            small=video.createAt.toLocaleString()
+            
+            p=video.createAt.toLocaleString("ko-KR")

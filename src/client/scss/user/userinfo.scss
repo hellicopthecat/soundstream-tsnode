@@ -1,0 +1,33 @@
+.userinfo_page-wrapper {
+	.userinfo_page-user {
+		border-bottom: 1px solid $subTxtColor;
+		padding-bottom: 20px;
+		.userinfo_page-userinfo {
+			display: flex;
+			align-items: center;
+			.userinfo_page-avatar {
+				width: 100px;
+				height: 100px;
+				border-radius: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				img {
+					border-radius: 100%;
+					width: 100px;
+					height: 100px;
+				}
+			}
+			.userinfo_page-edit {
+				margin-left: 20px;
+			}
+		}
+	}
+	.userinfo_page-myupload {
+		padding: 20px;
+		h3 {
+			font-size: 20px;
+			margin-bottom: 30px;
+		}
+	}
+}

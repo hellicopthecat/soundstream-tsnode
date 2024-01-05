@@ -1,11 +1,13 @@
 extends ../layout/layout
 include ../mixins/videoMixin
 
-block contents 
-    h2 VIDEOS
-    each video in videos
-        +videoMixin(video)
-    else 
-        div 
-            ul 
-                li there is no Data
+block contents
+    div.video-page
+        h2 VIDEOS
+        div.video-page-contents__wrapper
+            each video in videos
+                +videoMixin(video)
+            else 
+                div 
+                    ul 
+                        li there is no Data

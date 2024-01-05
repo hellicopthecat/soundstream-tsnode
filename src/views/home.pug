@@ -4,8 +4,9 @@ include ./mixins/mainPageContents
 block contents 
     div.main-video
         h2 최근영상
-        each video in videos 
-            +mainPageContents(video)
-        else 
-            div 
-                p 최근 올라온 영상이 없습니다.
+        ul.main-contents
+            each video in videos 
+                +mainPageContents(video)
+            else 
+                div 
+                    p 최근 올라온 영상이 없습니다.

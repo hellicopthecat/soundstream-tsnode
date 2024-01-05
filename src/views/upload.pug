@@ -1,30 +1,31 @@
 extends ./layout/layout
 
 block contents 
-    div 
-        form(method='POST' ,enctype="multipart/form-data") 
+    div.upload_page-wrapper
+        form.upload_page-form(method='POST' ,enctype="multipart/form-data")
             legend(hidden) Upload Contents
+            h2 업로드
             if error
                 div
                     p 제목과 설명을 작성하세요.
-            div 
+            div.upload_page-radio_cont
                 div
                     label(for="musicRadio") Music
-                    input#musicRadio(type="radio", name="contentRadio" value="music" checked)
+                    input#musicRadio.inputStyle(type="radio", name="contentRadio" value="music" checked)
                 div
                     label(for="videoRadio") Video
-                    input#videoRadio(type="radio", name="contentRadio" value="video")
+                    input#videoRadio.inputStyle(type="radio", name="contentRadio" value="video")
             div 
-                label(for="contentUpload") 파일 업로드 (10메가 이하)
-                input#contentUpload(type="file", name="contentUpload" accept="video/* ,audio/*, image/*" required)
+                label(for="contentUpload") 파일 업로드<br/>(10메가 이하)
+                input#contentUpload.inputStyle(type="file", name="contentUpload" accept="video/* ,audio/*, image/*" required)
             div 
                 label(for="contentTitle") 제목
-                input#contentTitle(type="text", name="title" placeholder="제목을 입력해주세요" required)
+                input#contentTitle.inputStyle(type="text", name="title" placeholder="제목을 입력해주세요" required)
             div 
                 label(for="contentDesc") 설명
-                input#contentDesc(type="text", name="description" placeholder="설명" required)
+                input#contentDesc.inputStyle(type="text", name="description" placeholder="설명" required)
             div 
                 label(for="contentHashTags") 해쉬태그
-                input#contentHashTags(type="text", name="hashTags" placeholder=",으로 구분 지어주세요.")
-            button(type="submit") 확인
-            a(href='/') 취소
+                input#contentHashTags.inputStyle(type="text", name="hashTags" placeholder=",으로 구분 지어주세요.")
+            button.btnStyle(type="submit") 확인
+            a.btnStyle(href='/') 취소

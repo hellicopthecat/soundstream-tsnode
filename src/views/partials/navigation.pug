@@ -6,16 +6,16 @@ nav.global-nav
             li
                 a(href='/video') Video
             li
-                a(href='/upload') 업로드
-            li
                 a(href='/search') 검색
     div 
         ul                
             if loggedIn
-                li 
-                    a(href="/logout") 로그아웃 
+                li
+                    a(href='/upload') 업로드
                 li 
                     a(href=`/users/${loggedUser._id}`) #{loggedUser.username}님의 My Page 
+                li 
+                    a(href="/logout") 로그아웃 
             else 
                 li 
                     a(href="/login") 로그인

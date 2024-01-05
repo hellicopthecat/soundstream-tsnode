@@ -1,0 +1,12 @@
+mixin avatarUrl(contents)
+    if contents.owner.avatarUrl !== ""
+        div.avatarBg-cont
+            a.avatarBg(href=`/users/${contents.owner._id}`) 
+                img(src=`/${contents.owner.avatarUrl}`, alt="avatarImg")
+            a(href=`/users/${contents.owner._id}`) 
+                p #{contents.owner.userId}
+    else 
+        div.non-avatarBg-cont
+            div.non-avatarBg
+            p 
+                a(href=`/user`) #{contents.owner.userId}

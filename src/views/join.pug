@@ -1,9 +1,9 @@
 extends ./layout/layout
 block contents 
-    div 
-        h2 회원가입
-        form(method="post") 
+    div.join_page-wrapper
+        form.join_page-form(method="post") 
             legend(hidden) join
+            h2 회원가입
             if idError 
                 div    
                     p=idError 
@@ -15,18 +15,18 @@ block contents
                     p=pwError
             div 
                 label(for="userId") ID
-                input#userId(type="text", name="userId" placeholder="아이디")
+                input#userId.inputStyle(type="text", name="userId" placeholder="아이디")
             div 
                 label(for="userPassword") 비밀번호
-                input#userPassword(type="text", name="password" placeholder="비밀번호")
+                input#userPassword.inputStyle(type="text", name="password" placeholder="비밀번호")
             div 
                 label(for="userPassword") 비밀번호 재확인
-                input#userPassword(type="text", name="passwordCheck" placeholder="비밀번호 재확인")
+                input#userPassword.inputStyle(type="text", name="passwordCheck" placeholder="비밀번호 재확인")
             div 
                 label(for="userName") 닉네임
-                input#userName(type="text", name="username" placeholder="닉네임")
+                input#userName.inputStyle(type="text", name="username" placeholder="닉네임")
             div 
                 label(for="userEmail") 이메일
-                input#userEmail(type="text", name="email" placeholder="이메일")
-            button(type="submit") 확인     
-            a(href='/') 취소
+                input#userEmail.inputStyle(type="text", name="email" placeholder="이메일")
+            button.btnStyle(type="submit") 확인     
+            a.btnStyle(href='/') 취소

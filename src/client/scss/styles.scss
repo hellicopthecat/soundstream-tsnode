@@ -4,8 +4,24 @@
 // Components
 @import "./components/navigation.scss";
 @import "./components/avatarBg.scss";
-// mixins Comp
+// Views
+
+// Main
 @import "./mixins/mainPageContents.scss";
+@import "./main/search.scss";
+@import "./main/login.scss";
+@import "./main/join.scss";
+@import "./main/upload.scss";
+
+// Video
+@import "./videoPage/videoPage.scss";
+@import "./videoPage/videoDetail.scss";
+@import "./videoPage/videoEdit.scss";
+
+// User
+@import "./user/userinfo.scss";
+@import "./user/edituser.scss";
+@import "./user/editpassword.scss";
 
 body {
 	display: flex;
@@ -13,5 +29,41 @@ body {
 	background-color: $bgColor;
 	color: $txtColor;
 	width: 100%;
+}
+
+main {
 	height: 100vh;
+	padding: 30px;
+	h2 {
+		font-size: 30px;
+		margin-bottom: 30px;
+	}
+}
+
+footer {
+	padding: 30px;
+}
+
+.inputStyle {
+	width: 100%;
+	background-color: inherit;
+	padding: 20px;
+	border: none;
+	border-bottom: 1px solid $inputBgColor;
+	color: $txtColor;
+	&::placeholder {
+		color: $subTxtColor;
+	}
+}
+.btnStyle {
+	background-color: $inputBgColor;
+	color: $txtColor;
+}
+.video-thumbnail {
+	width: 360px;
+	background-color: black;
+	video {
+		width: 360px;
+		height: 180px;
+	}
 }

@@ -1,28 +1,30 @@
 extends ./layout/layout
 include ./mixins/videoMixin
 block contents 
-    div 
+    div.search-page
         h2 검색
-        form(method="GET")
-            legend(hidden) search
-            div 
-                div
-                    label(for="musicRadio") All
-                    input#musicRadio(type="radio", name="searchRadio" value="all" checked) 
-                div
-                    label(for="musicRadio") Music
-                    input#musicRadio(type="radio", name="searchRadio" value="music" ) 
-                div
-                    label(for="videoRadio") Video
-                    input#videoRadio(type="radio", name="searchRadio" value="video") 
-            div
-                label(for="searchInput") 검색어
-                input#searchInput(type="text", name="searchTxt" placeholder="검색어를 입력하세요")
-            button(type="submit") 검색
-        each result in results 
-            +videoMixin(result)
-        else 
-            div 
-                p 검색어를 입력해주세요.
-
-    
+        div.search_form-wrapper
+            form.search_form(method="GET")
+                legend(hidden) search
+                div.search_form-radio
+                    div
+                        label(for="musicRadio") All
+                        input#musicRadio(type="radio", name="searchRadio" value="all" checked) 
+                    div
+                        label(for="musicRadio") Music
+                        input#musicRadio(type="radio", name="searchRadio" value="music" ) 
+                    div
+                        label(for="videoRadio") Video
+                        input#videoRadio(type="radio", name="searchRadio" value="video") 
+                div.search_form-input
+                    label(for="searchInput") 검색어
+                    input#searchInput.inputStyle(type="text", name="searchTxt" placeholder="검색어를 입력하세요")
+                    button.btnStyle(type="submit")
+                        svg(data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width=20 height=20)
+                            path(stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z")
+            
+            each result in results 
+                +videoMixin(result)
+            else 
+                div 
+                    p 상단에 검색어를 입력해주세요.
