@@ -22,6 +22,9 @@
 @import "./user/userinfo.scss";
 @import "./user/edituser.scss";
 @import "./user/editpassword.scss";
+* {
+	box-sizing: border-box;
+}
 
 body {
 	display: flex;

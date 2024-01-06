@@ -1,9 +1,23 @@
 include ./avatarMixin
 mixin videoDetail(video)
-    div.video-detail-video
-        video(src=`/${video.fileUrl}` controls) 
-    div.video-detail-info
+    div#videoPlayerWrapper.video_detail-video
+        video#videoPlayer(src=`/${video.fileUrl}` data-videoid=video._id)
+        div#videpPlayerController.video_detail-controllers 
+            div.video_detail-playBtn
+                button#video_detail-playBtn Play 
+            div.video_detail-playTime
+                div#video_detail-playTime 
+                    span#video_detail-currentTime 00:00:00
+                    span /
+                    span#video_detail-duration 00:00:00
+                input#video_detail-playRange(type="range" value="0" step="0.1")
+            div.video_detail-otherRemote
+                button#video_detail-muteBtn Mute
+                input#video_detail-soundRange(type="range" min="0" max="10" step='0.5' value="3")
+                button#video_detail-fullscreen Fullscreen
+    div.video_detail-info
         h2 #{video.title.toUpperCase()}
+        p #{video.meta.views > 0 ? `${video.meta.views} Views` : `${video.meta.views} View`}
         div
             +avatarUrl(video)
         div

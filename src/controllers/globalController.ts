@@ -7,12 +7,13 @@ export const home: ExpressRouter = async (req, res) => {
 	const videos = await contentsModel
 		.find({ contentsForm: "video" })
 		.populate("owner");
-	console.log(videos);
 	return res.render("home", { pageTitle: "HOME", videos });
 };
+
 export const upload: ExpressRouter = (req, res) => {
 	return res.render("upload", { pageTitle: "UPLOAD" });
 };
+
 export const uploadPost: ExpressRouter = async (req, res) => {
 	const {
 		session: { user },
@@ -43,6 +44,7 @@ export const uploadPost: ExpressRouter = async (req, res) => {
 		});
 	}
 };
+
 export const search: ExpressRouter = async (req, res) => {
 	const { searchRadio, searchTxt } = req.query;
 	let results: void[] = [];

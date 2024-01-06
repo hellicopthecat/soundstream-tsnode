@@ -76,7 +76,6 @@ export const joinWithGithubFin: ExpressRouter = async (req, res) => {
 export const getMyPage: ExpressRouter = async (req, res) => {
 	const { id } = req.params;
 	const user = await userModel.findById(id).populate("videos");
-	console.log(user);
 	if (!user) {
 		return res.status(404).render("404", {
 			pageTitle: `잘못된 접근 입니다.`,

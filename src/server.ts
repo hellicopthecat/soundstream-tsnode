@@ -7,6 +7,7 @@ import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 import MongoStore from "connect-mongo";
 import { pugLocalMiddleware } from "./middleware/middleware";
+import apiRouter from "./routers/apiRouter";
 
 const app = express();
 
@@ -35,5 +36,6 @@ app.use("/", globalRouter);
 app.use("/video", videoRouter);
 app.use("/music", musicRouter);
 app.use("/users", userRouter);
+app.use("/api", apiRouter);
 
 export default app;

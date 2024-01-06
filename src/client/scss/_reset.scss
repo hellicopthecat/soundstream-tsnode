@@ -126,9 +126,12 @@ table {
 a {
 	text-decoration: none;
 	color: inherit;
+	cursor: pointer;
 }
 
 button {
+	cursor: pointer;
+	padding: 0;
 	background-color: inherit;
 	border: none;
 }
