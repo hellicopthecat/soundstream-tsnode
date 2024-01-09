@@ -10,6 +10,9 @@ const contentsSchema = new mongoose.Schema<IContents, IHashformat>({
 	description: { type: String, required: true, trim: true, maxLength: 30 },
 	createAt: { type: Date, required: true, default: Date.now() },
 	hashTags: [{ type: String, trim: true }],
+	comments: [
+		{ type: mongoose.Schema.ObjectId, required: true, ref: "Comments" },
+	],
 	meta: {
 		views: { type: Number, required: true, default: 0 },
 		rating: { type: Number, required: true, default: 0 },

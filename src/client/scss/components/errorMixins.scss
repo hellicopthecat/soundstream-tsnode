@@ -1,0 +1,36 @@
+@keyframes flashKeyframes {
+	from {
+		transform: none;
+		opacity: 1;
+	}
+	to {
+		transform: translateY(-30px);
+		opacity: 0;
+	}
+}
+.message {
+	position: absolute;
+	top: 10px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	max-width: 500px;
+	text-align: center;
+	padding: 20px 30px;
+	font-size: 18px;
+	border-radius: 10px;
+	animation: flashKeyframes 1s ease-in-out forwards;
+	animation-delay: 2s;
+	&.error {
+		background-color: red;
+		color: white;
+	}
+	&.info {
+		background-color: yellow;
+		color: black;
+	}
+	&.success {
+		background-color: green;
+		color: white;
+	}
+}

@@ -8,5 +8,24 @@ block contents
                 a(href=`${video.id}/edit`) Edit Video &rarr;
                 br
                 a(href=`${video.id}/delete`) Delete Video &rarr;
+        if loggedIn
+            .video_detail-add-comment
+                h3 댓글
+                form#video_detail-comment-form(method='POST') 
+                    legend(hidden) Comment
+                    div 
+                        label(for="video_detail-comment-input") 댓글달기
+                        input#video_detail-comment-input.inputStyle(type="text", name="comment" placeholder="댓글을 작성해주세요.")
+                    button.btnStyle(type="submit") 확인
+        .video_detail-comments 
+            ul
+                each comment in video.comments.reverse()
+                    li.comment=comment.text
+                else 
+                    li 댓글을 작성해주세요.
+
+        
 block scripts 
-    script(src="/dist/js/videoPlayer.js") 
+    script(src="/dist/js/videoPlayer.js")
+    if loggedIn
+        script(src="/dist/js/comment.js") 

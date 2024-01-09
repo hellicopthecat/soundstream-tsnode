@@ -2,12 +2,15 @@ extends ./layout/layout
 
 block contents 
     div.upload_page-wrapper
+        div 
+            video#preview
+            button#recordBtn.btnStyle(type='click') 녹화하기
         form.upload_page-form(method='POST' ,enctype="multipart/form-data")
             legend(hidden) Upload Contents
             h2 업로드
             if error
                 div
-                    p 제목과 설명을 작성하세요.
+                    p 제목과 설명을 작성하세요.     
             div.upload_page-radio_cont
                 div
                     label(for="musicRadio") Music
@@ -29,3 +32,5 @@ block contents
                 input#contentHashTags.inputStyle(type="text", name="hashTags" placeholder=",으로 구분 지어주세요.")
             button.btnStyle(type="submit") 확인
             a.btnStyle(href='/') 취소
+block scripts 
+    script(src="/dist/js/recordVideo.js") 

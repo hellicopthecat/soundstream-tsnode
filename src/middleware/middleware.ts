@@ -11,6 +11,7 @@ export const protectMiddleWare: ExpressRouter = (req, res, next) => {
 	if (req.session.loggedIn) {
 		return next();
 	} else {
+		req.flash("error", "Not Authorized");
 		return res.redirect("/login");
 	}
 };
@@ -19,7 +20,8 @@ export const publicOnlyMiddleWare: ExpressRouter = (req, res, next) => {
 	if (!req.session.loggedIn) {
 		return next();
 	} else {
-		return res.redirect("/users/mypage");
+		req.flash("error", "Not Authorized");
+		return res.redirect("/");
 	}
 };
 

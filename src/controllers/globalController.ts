@@ -115,7 +115,7 @@ export const postLogin: ExpressRouter = async (req, res) => {
 	}
 	req.session.loggedIn = true;
 	req.session.user = user;
-
+	req.flash("success", "로그인하였습니다.");
 	return res.redirect("/");
 };
 

@@ -2,6 +2,7 @@ import "dotenv/config";
 import "./db";
 import "./models/contentsModel";
 import "./models/userModel";
+import "./models/commentModel";
 
 import app from "./server";
 

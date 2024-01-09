@@ -3,6 +3,12 @@ import mongoose from "mongoose";
 
 export type ExpressRouter = express.RequestHandler;
 
+export interface IComment {
+	text: string;
+	createAt: Date;
+	owner: mongoose.Types.ObjectId;
+	contents: mongoose.Types.ObjectId;
+}
 export interface IContents {
 	contentsForm: string;
 	title: string;
@@ -10,6 +16,7 @@ export interface IContents {
 	fileUrl: string;
 	createAt: Date;
 	hashTags?: string[];
+	comments?: mongoose.Types.ObjectId[];
 	meta: {
 		views: number;
 		rating: number;
@@ -32,6 +39,7 @@ export interface IUser {
 	social?: boolean;
 	avatarUrl?: string;
 	videos?: mongoose.Types.ObjectId[];
+	comments?: string[];
 }
 declare module "express-session" {
 	export interface SessionData {

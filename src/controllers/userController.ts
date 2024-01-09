@@ -154,6 +154,7 @@ export const postChangePw: ExpressRouter = async (req, res) => {
 			foundedUser.password = newPassword;
 			await foundedUser.save();
 			req.session.user.password = foundedUser.password;
+			req.flash("info", "password updated");
 			return res.redirect("/logout");
 		}
 	} else {
