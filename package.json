@@ -4,8 +4,12 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"dev": "nodemon",
-		"assets": "webpack --config webpack.config.js"
+		"start": "node build/init.js",
+		"build:server": "tsc --build",
+		"build:assets": "webpack --mode=production",
+		"build": "npm run build:server && npm run build:assets",
+		"dev:server": "nodemon",
+		"dev:assets": "webpack --mode=development -w"
 	},
 	"keywords": [
 		""

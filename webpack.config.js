@@ -8,8 +8,6 @@ module.exports = {
 		recordVideo: `${BASE_JS}/recordVideo.ts`,
 		comment: `${BASE_JS}/comment.ts`,
 	},
-	mode: "development",
-	watch: true,
 	devtool: "inline-source-map",
 	output: {
 		filename: "js/[name].js",
