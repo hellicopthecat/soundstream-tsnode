@@ -9,7 +9,10 @@ block contents
                 div.edituser_page-avatar(style="background: red")
             else
                 div.edituser_page-avatar
-                    img(src=`/${loggedUser.avatarUrl}`, alt="avatarImg" )
+                    if loggedUser.social
+                            img(src=loggedUser.avatarUrl, alt="avatarImg")
+                    else
+                        img(src=`/${loggedUser.avatarUrl}`, alt="avatarImg")
         form.edituser_page-form(method='POST', enctype="multipart/form-data")
             legend(hidden) My Page 
             div 

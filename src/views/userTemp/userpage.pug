@@ -8,7 +8,10 @@ block contents
                 div
                 if user.avatarUrl !== ""
                     div.userinfo_page-avatar
-                        img(src=`/${user.avatarUrl}`, alt="avatarImg")
+                        if loggedUser.social
+                            img(src=user.avatarUrl, alt="avatarImg")
+                        else
+                            img(src=`/${user.avatarUrl}`, alt="avatarImg")
                 else
                     div.userinfo_page-avatar(style="background: red;" )
                 div.userinfo_page-edit
