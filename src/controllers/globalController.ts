@@ -3,6 +3,8 @@ import contentsModel from "../models/contentsModel";
 import userModel from "../models/userModel";
 import bcrypt from "bcrypt";
 
+const isRenderDotCom = process.env.NODE_ENV === "production";
+
 export const home: ExpressRouter = async (req, res) => {
 	const videos = await contentsModel
 		.find({ contentsForm: "video" })
@@ -27,7 +29,9 @@ export const uploadPost: ExpressRouter = async (req, res) => {
 				contentsForm: contentRadio,
 				title,
 				description,
-				fileUrl: (file as { location?: string })?.location,
+				fileUrl: isRenderDotCom
+					? (file as { location?: string })?.location
+					: file?.path,
 				hashTags: contentsModel.formatHash(hashTags),
 				owner: user?._id,
 			});

@@ -3,6 +3,8 @@ import { ExpressRouter, IGithubUserEmail } from "../types/type";
 import fetch from "node-fetch";
 import bcrypt from "bcrypt";
 
+const isRenderDotCom = process.env.NODE_ENV === "production";
+
 export const joinWithGithub: ExpressRouter = (req, res) => {
 	const BASE_URL = "https://github.com/login/oauth/authorize";
 	const config = {
@@ -106,7 +108,11 @@ export const postEditUser: ExpressRouter = async (req, res) => {
 		const updateUser = await userModel.findByIdAndUpdate(
 			_id,
 			{
-				avatarUrl: (file as { location?: string })?.location ?? avatarUrl,
+				avatarUrl: file
+					? isRenderDotCom
+						? (file as { location?: string })?.location
+						: file?.path
+					: avatarUrl,
 				username,
 			},
 			{ new: true },

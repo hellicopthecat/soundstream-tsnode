@@ -3,6 +3,8 @@ import multer from "multer";
 import multerS3 from "multer-s3";
 import { S3Client } from "@aws-sdk/client-s3";
 
+const isRenderDotCom = process.env.NODE_ENV === "production";
+
 const s3 = new S3Client({
 	region: "ap-northeast-2",
 	credentials: {
@@ -11,10 +13,21 @@ const s3 = new S3Client({
 	},
 });
 
-const multerUploader = multerS3({
+const s3VideoUploader = multerS3({
 	s3: s3,
 	bucket: "squaresquare",
 	acl: "public-read",
+	key(req, file, callback) {
+		callback(null, "videos/" + file.originalname);
+	},
+});
+const s3ImageUploader = multerS3({
+	s3: s3,
+	bucket: "squaresquare",
+	acl: "public-read",
+	key(req, file, callback) {
+		callback(null, "images/" + file.originalname);
+	},
 });
 
 export const pugLocalMiddleware: ExpressRouter = (req, res, next) => {
@@ -46,7 +59,7 @@ export const avatarMulter = multer({
 	limits: {
 		fieldSize: 3000000,
 	},
-	storage: multerUploader,
+	storage: isRenderDotCom ? s3ImageUploader : undefined,
 });
 
 export const videoMulter = multer({
@@ -54,5 +67,5 @@ export const videoMulter = multer({
 	limits: {
 		fieldSize: 10000000,
 	},
-	storage: multerUploader,
+	storage: isRenderDotCom ? s3VideoUploader : undefined,
 });
