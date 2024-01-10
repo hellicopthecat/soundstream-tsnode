@@ -9,6 +9,6 @@ import app from "./server";
 const PORT = process.env.PORT || 5040;
 
 const handleListen = () =>
-	console.log("✅ Server is Listenin on http://localhost:5040");
+	console.log(`✅ Server is Listenin on http://localhost:${PORT}`);
 
 app.listen(PORT, handleListen);
