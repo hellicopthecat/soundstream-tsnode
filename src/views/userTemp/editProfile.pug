@@ -12,7 +12,7 @@ block contents
                     if loggedUser.social
                             img(src=loggedUser.avatarUrl, alt="avatarImg")
                     else
-                        img(src=`/${loggedUser.avatarUrl}`, alt="avatarImg")
+                        img(src=`${loggedUser.avatarUrl}`, alt="avatarImg")
         form.edituser_page-form(method='POST', enctype="multipart/form-data")
             legend(hidden) My Page 
             div 

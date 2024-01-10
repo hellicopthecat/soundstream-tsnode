@@ -1,7 +1,7 @@
 include ./avatarMixin
 mixin videoDetail(video)
     div#videoPlayerWrapper.video_detail-video
-        video#videoPlayer(src=`/${video.fileUrl}` data-videoid=video._id)
+        video#videoPlayer(src=`${video.fileUrl}` data-videoid=video._id)
         div#videpPlayerController.video_detail-controllers 
             div.video_detail-playBtn
                 button#video_detail-playBtn Play 

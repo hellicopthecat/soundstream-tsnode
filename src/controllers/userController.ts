@@ -100,12 +100,13 @@ export const postEditUser: ExpressRouter = async (req, res) => {
 		body: { username, avatarUrl },
 		file,
 	} = req;
+
 	if (user) {
 		const { _id } = user;
 		const updateUser = await userModel.findByIdAndUpdate(
 			_id,
 			{
-				avatarUrl: file?.path ?? avatarUrl,
+				avatarUrl: (file as { location?: string })?.location ?? avatarUrl,
 				username,
 			},
 			{ new: true },

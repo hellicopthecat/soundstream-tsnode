@@ -1,5 +1,5 @@
 {
 	"ext": "ts,json",
-	"exec": "ts-node src/init",
+	"exec": "ts-node src/app",
 	"ignore": ["webpack.config.js", "src/client/*", "dist"]
 }

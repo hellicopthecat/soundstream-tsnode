@@ -27,7 +27,7 @@ export const uploadPost: ExpressRouter = async (req, res) => {
 				contentsForm: contentRadio,
 				title,
 				description,
-				fileUrl: file?.path,
+				fileUrl: (file as { location?: string })?.location,
 				hashTags: contentsModel.formatHash(hashTags),
 				owner: user?._id,
 			});

@@ -41,6 +41,7 @@ export interface IUser {
 	videos?: mongoose.Types.ObjectId[];
 	comments?: string[];
 }
+
 declare module "express-session" {
 	export interface SessionData {
 		cookie: Cookie;
